@@ -13,6 +13,10 @@ var contact = require('./routes/contact');
 
 var app = express();
 
+// serverist copytud
+var port = process.env.PORT || 8080;
+app.set('port', (process.env.PORT || 8080))
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -61,5 +65,9 @@ app.use(function(err, req, res, next) {
   });
 });
 
+//serverist copytud
+app.listen(port, function() {
+  console.log('Our app is running on http://localhost:' + port);
+});
 
 module.exports = app;
