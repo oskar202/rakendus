@@ -3,9 +3,9 @@ var app = express();
 
 // set the port of our application
 // process.env.PORT lets the port be set by Heroku
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || 5000;
 
-app.set('port', (process.env.PORT || 8080))
+app.set('port', (process.env.PORT || 5000))
 
 // set the view engine to jade
 app.set('view engine', 'jade');
