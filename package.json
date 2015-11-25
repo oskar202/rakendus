@@ -25,7 +25,8 @@
     "url": "git+https://github.com/oskar202/rakendus.git"
   },
   "keywords": [
-    "heroku"
+    "heroku",
+    "node"
   ],
   "author": "Oskar Liblik",
   "license": "ISC",
