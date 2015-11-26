@@ -54,9 +54,11 @@ html(lang="en")
                   label Flavor quality
                   input(type="text", class="form-control", placeholder="Moldy")
                   br
-                  label Product quality
+                  label Product Category 
                   input(type="text", class="form-control", placeholder="Herbs")
-
+                  br
+                  label Retention index 
+                  input(type="text", class="form-control", placeholder="681")
                 div.actions
                   button(type="submit",class="btn btn-default") Search
 
@@ -68,19 +70,25 @@ html(lang="en")
 
                   form
                     div.form-group
-                      label Chemical name
+                      label Molecule name *
                       input(type="text", class="form-control")
                       br
-                      label Flavor quality
+                      label CAS number *
                       input(type="text", class="form-control")
                       br
-                      label Product category
+                      label Flavor quality list *
                       input(type="text", class="form-control")
                       br
-                      label Mechanism of Formation
+                      label Product category *
                       input(type="text", class="form-control")
                       br
-                      label Retention index
+                      label Developing Mechanism *
+                      input(type="text", maxlength="4", class="form-control")
+                      br
+                      label Retention column *
+                      input(type="text", class="form-control")
+                      br
+                      label Retention index *
                       input(type="text", class="form-control")
                       br
                       label Odor threshold
