@@ -9,9 +9,9 @@ router.get('/', function(req, res, next) {
   entu.getEntities({
   	definition: 'index',
   	fullObject: true
-  },
-  res.render('index', {
-  	index : index
+  }),
+  	res.render('index', {
+  		index : index
   	})
 	
 });
