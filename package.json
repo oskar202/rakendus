@@ -16,6 +16,7 @@
     "morgan": "^1.6.1",
     "object-path": "0.x",
     "randomstring": "^1.1.3",
+    "request": "^2.67.0",
     "serve-favicon": "^2.3.0",
     "socket.io": "^1.3.7",
     "stylus": "0.x"
