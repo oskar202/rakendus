@@ -1,6 +1,7 @@
 extends layout
 
 block vars
+block title
 
 
   body
@@ -13,13 +14,13 @@ block vars
           span.icon-bar
           span.icon-bar
         a.navbar-brand(href="#") Off-Flavor Database
-        block login
 
       #navbar-inverse.collapse.navbar-collapse
         ul.nav.navbar-nav
           li: a( href="/") Home
           li.active: a( href="#" ) About
           li: a( href="contact" ) Contact
+block login
 block content
 block body
 
