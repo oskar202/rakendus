@@ -1,16 +1,9 @@
-doctype html
-html(lang="en")
-  head
-    meta(charset='utf-8')
-    meta(http-equiv='X-UA-Compatible' content='IE=edge')
-    meta(name='viewport' content='width=device-width, initial-scale=1')
+extends layout
+block vars
+block title
 
-    title Contact
-    link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css')
-    link(rel='stylesheet' href='/stylesheets/style.styl')
-    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
-    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js')
-
+block content
+  
   body
 
     p(style='text-align:right') 
@@ -38,12 +31,9 @@ html(lang="en")
 
     
 
-  div.jumbotron
-    p(style='text-align: center') ENHANCING THE FLAVOR 
-      br 
-      |Keep producing the perfect product
 
-  
+block body
+
   div.col-md-6
     p
       |Competence Center of Food and Fermentation Technologies (CCFFT)
