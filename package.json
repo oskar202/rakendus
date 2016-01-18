@@ -4,18 +4,20 @@
   "description": "OFdatabase",
   "main": "app.js",
   "dependencies": {
-    "cookie-parser": "^1.3.5",
-    "hjs": "^0.0.6",
     "body-parser": "^1.13.3",
-    "morgan": "^1.6.1",
-    "less-middleware": "^1.0.4",
-    "debug": "^2.2.0",
-    "jade": "^1.11.0",
     "bootstrap": "^3.3.5",
-    "socket.io": "^1.3.7",
+    "cookie-parser": "^1.3.5",
+    "debug": "^2.2.0",
+    "express": "^4.13.3",
+    "hjs": "^0.0.6",
+    "jade": "^1.11.0",
+    "marked": "^0.3.5",
     "mongoose": "^4.1.8",
+    "morgan": "^1.6.1",
+    "object-path": "0.x",
     "serve-favicon": "^2.3.0",
-    "express": "^4.13.3"
+    "socket.io": "^1.3.7",
+    "stylus": "0.x"
   },
   "scripts": {
     "start": "node ./app.js"
