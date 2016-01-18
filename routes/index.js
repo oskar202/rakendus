@@ -1,7 +1,7 @@
-var express = require('express')
-var router = express.Router()
+var express = require('express');
+var router = express.Router();
 
-var entu = require('../entu/entu')
+//var entu = require('./entu/entu')
 
 
 /* GET home page. */
