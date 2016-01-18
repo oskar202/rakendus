@@ -1,6 +1,6 @@
 var async    = require('async')
 var crypto   = require('crypto')
-//var md       = require('marked')
+var md       = require('marked')
 var op       = require('object-path')
 var random   = require('randomstring')
 var request  = require('request')
