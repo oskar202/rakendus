@@ -4,9 +4,12 @@ var router = express.Router();
 var entu = require('../entu/entu')
 
 
+
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index');
+  res.render($('form').serialize());
+  
 });
 
 
