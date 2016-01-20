@@ -8,8 +8,7 @@ var entu = require('../entu/entu')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render($('form').serialize());
-  
+  res.render('index');
 });
 
 
