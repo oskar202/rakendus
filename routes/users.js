@@ -3,8 +3,8 @@ var router = express.Router();
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.send($('form').serialize());
-
+  res.send('respond with a resource');
+$('form').serialize()
   //siia lehele tulemused
 });
 
