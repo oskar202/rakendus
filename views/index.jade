@@ -49,7 +49,7 @@ html(lang="en")
             div.col-md-8
               h1 Search off-flavors
 
-              form(method="GET", action="/users")
+              form(method="GET", action="/search")
                 div.form-group
                   label Flavor quality
                   input(type="text",name="quality", class="form-control", placeholder="Moldy")
@@ -60,7 +60,7 @@ html(lang="en")
                   label Retention index 
                   input(type="text",name="retention", class="form-control", placeholder="681")
                 div.actions
-                  button(type="submit",class="btn btn-default", formaction="/users") Search
+                  button(type="submit",class="btn btn-default") Search
 
 
           div.row
