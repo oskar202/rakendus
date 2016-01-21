@@ -10,10 +10,10 @@ block content
 	h1 Tulemused
 	each f in flavors
 		div= "ID:" + " "+ f.get('_id')
-		div= "ID:" + " "+ f.get('cas-number.value', 'XXXXX')
-		div= "ID:" + " "+ f.get('molecul-name.value', 'XXXXX')
-		div= "ID:" + " "+ f.get('treshold.value', 'XXXXX')
-		div=""
+		div= "CAS number:" + " "+ f.get('cas-number.value', 'XXXXX')
+		div= "Molecul name:" + " "+ f.get('molecul-name.value', 'XXXXX')
+		div= "Treshold:" + " "+ f.get('treshold.value', 'XXXXX')
+		div=" "
 
 	//- cas-number
 	//- entu-changed-at
