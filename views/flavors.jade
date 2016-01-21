@@ -9,12 +9,10 @@ block content
 	.col-md-6
 	h1 Tulemused
 	each f in flavors
-		
 		div= "Treshold:" + " "+ f.get('treshold.value', 'XXXXX')
 		div= "Quality:" + " "+ f.get('quality.value', 'XXXXX')
 		div= "Retention index:" + " "+ f.get('retention-index.value', 'XXXXX')
 		div= "Photo:" + " "+ f.get('photo.value', 'XXXXX')
-
 		br
 
 //- cas-number
