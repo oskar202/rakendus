@@ -9,10 +9,10 @@ block content
 	.col-md-6
 	h1 Tulemused
 	each f in flavors
-		div= "id" + " "+ f.get('_id')
-		div= f.get('cas-number.value', 'XXXXX')
-		div= f.get('molecul-name.value', 'XXXXX')
-		div= f.get('treshold.value', 'XXXXX')
+		div = "ID:" + " "+ f.get('_id')
+		div = "ID:" + " "+ f.get('cas-number.value', 'XXXXX')
+		div = "ID:" + " "+ f.get('molecul-name.value', 'XXXXX')
+		div = "ID:" + " "+ f.get('treshold.value', 'XXXXX')
 
 
 	//- cas-number
