@@ -1,28 +1,28 @@
 extends layout
 
 block vars
-    - title = 'Flavors'
-    - activeMenu = 'flavors'
+	- title = 'Flavors'
+	- activeMenu = 'flavors'
 
 block content
+	.container
+	.col-md-6
+	h1 Tulemused
+		each f in flavors
+			div= f.get('_id')
+			div= f.get('cas-number.value', 'XXXXX')
+			div= f.get('molecul-name.value', 'XXXXX')
+			div= f.get('treshold.value', 'XXXXX')
 
-    each f in flavors
-        div= f.get('_id')
-        div= f.get('cas-number.value', 'XXXXX')
-        div= f.get('molecul-name.value', 'XXXXX')
-        div= f.get('treshold.value', 'XXXXX')
 
-        hr
-
-
-//- cas-number
-//- entu-changed-at
-//- entu-changed-by
-//- entu-created-at
-//- entu-created-by
-//- molecul-name
-//- other-molecul-name
-//- photo
-//- quality
-//- retention-index
-//- treshold
+	//- cas-number
+	//- entu-changed-at
+	//- entu-changed-by
+	//- entu-created-at
+	//- entu-created-by
+	//- molecul-name
+	//- other-molecul-name
+	//- photo
+	//- quality
+	//- retention-index
+	//- treshold
