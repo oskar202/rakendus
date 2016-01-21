@@ -6,17 +6,15 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 //var mongoose = require('mongoose');
 
-var routes = require('./routes/index');
-var about = require('./routes/about');
-var contact = require('./routes/contact');
-var flavors = require('./routes/flavors');
-
-
 var app = express();
 
+
 // serverist copytud
-var port = process.env.PORT || 3000;
-app.set('port', (process.env.PORT || 3000))
+APP_PORT      = process.env.PORT || 3000;
+APP_ENTU_URL  = process.env.ENTU_URL || 'https://nospel.entu.ee/api2'
+APP_ENTU_USER = process.env.ENTU_USER
+APP_ENTU_KEY  = process.env.ENTU_KEY
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -31,10 +29,11 @@ app.use(cookieParser());
 //app.use(require('less-middleware')(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
-app.use('/about', about);
-app.use('/contact', contact);
-app.use('/flavors', flavors);
+
+app.use('/', require('./routes/index'));
+app.use('/about', require('./routes/about'));
+app.use('/contact', require('./routes/contact'));
+app.use('/flavors', require('./routes/flavors'));
 
 
 // catch 404 and forward to error handler
@@ -46,32 +45,17 @@ app.use(function(req, res, next) {
 
 
 // error handlers
-
-// development error handler
-// will print stacktrace
-if (app.get('env') === 'development') {
-  app.use(function(err, req, res, next) {
-    res.status(err.status || 500);
-    res.render('error', {
-      message: err.message,
-      error: err
-    });
-  });
-}
-
-// production error handler
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error', {
     message: err.message,
-    error: {}
+    error: app.get('env') === 'development' ? err : {}
   });
 });
 
-//serverist copytud
-app.listen(port, function() {
-  console.log('Our app is running on http://localhost:' + port);
-});
 
-module.exports = app;
+//serverist copytud
+app.listen(APP_PORT, function() {
+  console.log('Our app is running on http://localhost:' + APP_PORT);
+});

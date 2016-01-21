@@ -1,30 +1,10 @@
 extends layout
+
 block vars
-block title
-  title Contact
-  body
+    - title = 'Contact'
+    - activeMenu = 'contact'
 
-      nav.navbar.navbar-default( role="navigation" )
-          .navbar-header
-              button.navbar-toggle.collapsed( type="button", data-toggle="collapse", data-target="#navbar-inverse", aria-expanded="false", aria-controls="navbar")
-                  span.sr-only Toggle navigation
-                  span.icon-bar
-                  span.icon-bar
-                  span.icon-bar
-              a.navbar-brand(href="#") Off-Flavor Database
-
-       
-          #navbar-inverse.collapse.navbar-collapse
-              ul.nav.navbar-nav
-                  li: a( href="/") Home
-                  li: a( href="about" ) About
-                  li.active: a( href="#" ) Contact
-               
-
-block login
 block content
-block body
-
   .container
     .col-md-6
       p
@@ -40,5 +20,5 @@ block body
         br
         |e-mail: info [at] tftak [dot] eu
         br
-     .col-md-6     
+     .col-md-6
         img(src="https://maps.googleapis.com/maps/api/staticmap?center=Opera+House,Sydney+Australia&zoom=13&size=400x300&markers=-33.8565,151.2151&sensor=false")

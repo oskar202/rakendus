@@ -1,18 +1,8 @@
-var express = require('express');
-var router = express.Router();
+var router = require('express').Router();
 
+var entu = require('../entu/entu')
 
-/* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.render('flavors');
-
-
-  //siia lehele tulemused
-});
-
-
-
-router.get('/search', function(req, res, next) {
     entu.getEntities({
         definition: 'flavor',
         fullObject: true,
