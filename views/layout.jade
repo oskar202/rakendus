@@ -9,8 +9,7 @@ html(lang="en")
 		meta(name='viewport' content='width=device-width, initial-scale=1')
 
 		title= title
-		- activeMenu = 'home' //default
-		- menu = { 'Home': '/', 'About': '/about', 'Contact': '/contact' }
+  		-menu = { 'home': '/', 'about': '/about', 'contact': '/contact' };
 
 		link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css')
 		link(rel='stylesheet' href='/stylesheets/style.styl')
@@ -29,7 +28,7 @@ html(lang="en")
 					span.icon-bar
 				a.navbar-brand(href="#") Off-Flavor Database
 
-			nav.collapse.navbar-collapse
+			#navbar-inverse.collapse.navbar-collapse
 				ul.nav.navbar-nav
 					each val, key in menu
 						li
