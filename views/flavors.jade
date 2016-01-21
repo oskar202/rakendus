@@ -8,8 +8,9 @@ block content
 
     each f in flavors
         div= f.get('_id')
-        div= f.get('cas-number').value
-        div= f.get('molecul-name').value
+        div= f.get('cas-number.value', 'XXXXX')
+        div= f.get('molecul-name.value', 'XXXXX')
+        div= f.get('treshold.value', 'XXXXX')
 
         hr
 
