@@ -9,8 +9,8 @@ html(lang="en")
 		meta(name='viewport' content='width=device-width, initial-scale=1')
 
 		title= title
-		selected= 'home'; //default
-		menu= { 'home': '/', 'about': '/about', 'contact': '/contact' };
+		activeMenu= 'home' //default
+		menu= {'home': '/', 'about': '/about', 'contact': '/contact'}
 
 		link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css')
 		link(rel='stylesheet' href='/stylesheets/style.styl')
@@ -33,8 +33,8 @@ html(lang="en")
 				ul.nav.navbar-nav
 					each val, key in menu
 		  				li
-							if selected === key
-			 	 				a.selected(href=val, title=key)= key
+							if activeMenu === key
+			 	 				a.activeMenu(href=val, title=key)= key
 							else
 			  					a(href=val, title=key)= key
 
