@@ -5,6 +5,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 //var mongoose = require('mongoose');
+var stylus = require('stylus')
+var nib = require('nib')
 
 var app = express();
 
@@ -26,8 +28,9 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-//app.use(require('less-middleware')(path.join(__dirname, 'public')));
+//app.use(require('stylus-middleware')(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
+
 
 
 app.use('/', require('./routes/index'));

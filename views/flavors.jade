@@ -6,18 +6,33 @@ block vars
 
 block content
 	.container
-	.col-md-6
-	h1 Results
-	each f in flavors
-		div= "ID:" + " "+ f.get('_id')
-		div= "CAS number:" + " "+ f.get('cas-number.value', 'XXXXX')
-		div= "Molecul name:" + " "+ f.get('molecul-name.value', 'XXXXX')
-		div= "Treshold:" + " "+ f.get('treshold.value', 'XXXXX')
-		div= "Quality:" + " "+ f.get('quality.value', 'XXXXX')
-		div= "Retention index:" + " "+ f.get('retention-index.value', 'XXXXX')
-		div= "Other-molecul-name:" + " "+ f.get('other-molecul-name.value', 'XXXXX')
-		div= "Photo:" + " "+ f.get('photo.value', 'XXXXX')
-		br
+		.col-md-6
+		h1 Results
+		table#flavors
+			thead
+			tr.head
+				th.col-md-2 ID
+				th.col-md-2 CAS number
+				th.col-md-2 Molecule name
+				th.col-md-2 Treshold
+				th.col-md-2 Quality
+				th.col-md-2 Retention index
+				th.col-md-2 Other-molecule-name
+				th.col-md-2 Photo
+
+			tbody
+			- var i = -1
+			each f in flavors
+				- ++i
+				tr(class=(i % 2 == 0) ? 'odd' : 'even')
+					td.col-md-2= f.get('_id')
+					td.col-md-2= f.get('cas-number.value', 'XXXX')
+					td.col-md-2= f.get('molecul-name.value', 'XXXX')
+					td.col-md-2= f.get('treshold.value', 'XXXX')
+					td.col-md-2= f.get('quality.value', 'XXXX')
+					td.col-md-2= f.get('retention-index.value', 'XXXX')
+					td.col-md-2= f.get('other-molecul-name.value', 'XXXX')
+					td.col-md-2= f.get('photo.value', 'XXXX')
 
 //- cas-number
 	//- entu-changed-at
