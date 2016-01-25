@@ -1,6 +1,8 @@
 body {
   padding: 50px;
-  font: 12px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px Helvetica;
+  background: #82e0af;
+  letter-spacing: 1px;
 }
 a {
   color: #00b7ff;
@@ -9,8 +11,29 @@ table#flavors tr.odd {
   background-color: #f5f5f5;
 }
 table#flavors tr.even {
-  background-color: #c7c7c7;
+  background-color: #dedede;
 }
 td {
   height: 70px;
+}
+h1 {
+  color: #fff;
+  font: 20px Helvetica;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+button {
+  font: 18px Helvetica, Arial, sans-serif;
+  box-sizing: border-box;
+  display: block;
+  border: none;
+  padding: 20px;
+  width: 90px;
+  margin-bottom: 20px;
+  font-size: 18px;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+}
+.jumbo {
+  text-align: center;
 }
