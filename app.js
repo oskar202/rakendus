@@ -78,6 +78,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', require('./routes/index'));
 app.use('/signin', require('./routes/signin'));
+app.use('//signin', require('./routes//signin'));
 
 //app.use('/about', require('./routes/about'));
 
