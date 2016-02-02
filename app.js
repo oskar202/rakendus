@@ -39,7 +39,7 @@ app.use(function(req, res, next) {
 	res.authenticate = function() {
 		if(!res.locals.user) {
 			res.cookie('redirect_url', '/' + res.locals.path.split('/').slice(2).join('/'), {signed:true, maxAge:1000*60*60})
-			res.redirect('/' + '/signin')
+			res.redirect('/signin')
 			return false
 		} else {
 			return true
