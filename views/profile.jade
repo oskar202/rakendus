@@ -1,0 +1,186 @@
+extends layout
+
+block vars
+	- title = 'Profile'
+
+block head
+	link(rel='stylesheet', type='text/css', href='https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css')
+	script(src='https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js')
+
+block content
+	.container(ng-controller='profileCtrl')
+		.row
+			.col-xs-12.text-center
+				.button-block
+					a.btn.btn-lg.bg-green(href='messages')= t('pages.profile.messages')
+
+				.button-block
+					a.btn.btn-lg.bg-red(href='help/requests#add')= t('pages.profile.add-new-request')
+
+				.button-block
+					a.btn.btn-lg.bg-yellow(href='help/offers#add')= t('pages.profile.add-new-offer')
+		form#profile-form
+			.row
+				.form-group.col-xs-12
+					label.control-label(for='photo')= t('pages.profile.photo')
+					if profile.get('photo')
+						.row
+							img.col-xs-12.col-sm-2(ng-show='!photoUploadPercent', src=profile.get('photo.file'), alt=profile.get('photo.value'))
+							a.col-xs-12.col-sm-2.text-left(ng-show='!photoUploadPercent', ng-click='photoDelete(#{ profile.get("photo.id") })')= t('pages.profile.delete-photo')
+					input.form-control.col-xs-12(ng-show='!photoUploadPercent', type='file', custom-on-change='photoUpload')
+					.row
+						small.col-xs-12(ng-show='photoUploadPercent')= t('pages.profile.photo-upload')
+
+
+			.row
+				.form-group.col-xs-12.col-sm-12
+					label.control-label(ng-class='{ "active": p.slogan.edit }')= t('pages.profile.slogan')
+					input#slogan.form-control(type='text', placeholder=t('pages.profile.slogan-ph'), value=profile.get('slogan.value'), data-value=profile.get('slogan.value'), data-id=profile.get('slogan.id'), ng-focus='p.slogan.edit = true', ng-blur='p.slogan.edit = false')
+
+				.form-group.col-xs-12.col-sm-3
+					label.control-label(ng-class='{ "active": p.forename.edit }')= t('pages.profile.forename')
+					input#forename.form-control(type='text', placeholder=t('pages.profile.forename-ph'), value=profile.get('forename.value'), data-value=profile.get('forename.value'), data-id=profile.get('forename.id'), ng-focus='p.forename.edit = true', ng-blur='p.forename.edit = false', ng-required='true')
+
+				.form-group.col-xs-12.col-sm-3
+					label.control-label(ng-class='{ "active": p.surname.edit }')= t('pages.profile.surname')
+					input#surname.form-control(type='text', placeholder=t('pages.profile.surname-ph'), value=profile.get('surname.value'), data-value=profile.get('surname.value'), data-id=profile.get('surname.id'), ng-focus='p.surname.edit = true', ng-blur='p.surname.edit = false')
+
+				.form-group.col-xs-12.col-sm-3
+					label.control-label(ng-class='{ "active": p.email.edit }')= t('pages.profile.email')
+					input#email.form-control(type='text', placeholder=t('pages.profile.email-ph'), value=profile.get('email.value'), data-value=profile.get('email.value'), data-id=profile.get('email.id'), ng-focus='p.email.edit = true', ng-blur='p.email.edit = false', ng-required='true')
+
+				.form-group.col-xs-12.col-sm-3
+					label.control-label(ng-class='{ "active": p.language.edit }')= t('pages.profile.language')
+					select#language.form-control(data-value=profile.get('language.value'), data-id=profile.get('language.id'), ng-focus='p.language.edit = true', ng-blur='p.language.edit = false')
+						if !profile.get('language.value')
+							option()
+						each l in locales
+							option(selected=profile.get('language.value') == l, value=l)= t('locales.' + l)
+
+				.form-group.col-xs-12.col-sm-4
+					label.control-label(ng-class='{ "active": p.address.edit }')= t('pages.profile.address')
+					input#address.form-control(type='text', placeholder=t('pages.profile.address-ph'), value=profile.get('address.value'), data-value=profile.get('address.value'), data-id=profile.get('address.id'), ng-focus='p.address.edit = true', ng-blur='p.address.edit = false')
+				.form-group.col-xs-12.col-sm-4
+					label.control-label(ng-class='{ "active": p.town.edit }')= t('pages.profile.city')
+					input#town.form-control(type='text', placeholder=t('pages.profile.city-ph'), value=profile.get('town.value'), data-value=profile.get('town.value'), data-id=profile.get('town.id'), ng-focus='p.town.edit = true', ng-blur='p.town.edit = false')
+
+				.form-group.col-xs-12.col-sm-4
+					label.control-label(ng-class='{ "active": p.county.edit }')= t('pages.profile.county')
+					input#county.form-control(type='text', placeholder=t('pages.profile.county-ph'), value=profile.get('county.value'), data-value=profile.get('county.value'), data-id=profile.get('county.id'), ng-focus='p.county.edit = true', ng-blur='p.county.edit = false')
+
+				.form-group.col-xs-12.col-sm-4
+					label.control-label(ng-class='{ "active": p.country.edit }')= t('pages.profile.country')
+					input#country.form-control(type='text', placeholder=t('pages.profile.country-ph'), value=profile.get('country.value'), data-value=profile.get('country.value'), data-id=profile.get('country.id'), ng-focus='p.country.edit = true', ng-blur='p.country.edit = false')
+
+				.form-group.col-xs-12.col-sm-8
+					label.control-label(ng-class='{ "active": p.newsletter.edit }')= t('pages.profile.newsletter')
+					input#newsletter(type='checkbox', checked=(profile.get('newsletter.value') === 'True' ? 'checked' : undefined) data-value=profile.get('newsletter.value'), data-id=profile.get('newsletter.id'), ng-focus='p.newsletter.edit = true', ng-blur='p.newsletter.edit = false')
+
+			.row.text-center
+				.col-xs-12
+					h2.col-xs-12= t('pages.profile.about-me-tab')
+
+			.row
+				.profile-tab-pane(ng-show='!tab || tab === 2')
+					.form-group.col-xs-12
+						label.control-label(for='about-me-text')= t('pages.profile.about-me-text')
+						textarea#about-me-text.form-control(data-value=profile.get('about-me-text.value'), data-id=profile.get('about-me-text.id'), rows=8)= profile.get('about-me-text.value')
+						p.text-right
+							small!= t('pages.profile.markdown-info')
+
+					.form-group.col-xs-12.col-sm-8
+						label.control-label(ng-class='{ "active": p.about_video.edit }')= t('pages.profile.about-me-video')
+						input#about-me-video.form-control(type='text', placeholder=t('pages.profile.video-ph'), value=profile.get('about-me-video.value'), data-value=profile.get('about-me-video.value'), data-id=profile.get('about-me-video.id'), ng-focus='p.about_video.edit = true', ng-blur='p.about_video.edit = false')
+						p.text-right
+							small!= t('pages.profile.video-info')
+
+
+
+			.row.spacer
+
+			.row.text-center
+				.color-green.col-xs-12= t('pages.profile.save-info')
+
+			.row.spacer
+
+	script.
+		var md = {}
+		$('textarea').each(function() {
+			var input = $(this)
+			var id = input.attr('id')
+			md[id] = new SimpleMDE({
+				element: document.getElementById(id),
+				status: false,
+				spellChecker: false
+			})
+			md[id].render()
+			md[id].codemirror.on('focus', function() {
+				$("label[for='" + id + "']").addClass('active')
+				$('.CodeMirror').addClass('CodeMirror-focus')
+			})
+			md[id].codemirror.on('blur', function() {
+				$("label[for='" + id + "']").removeClass('active')
+				$('.CodeMirror').removeClass('CodeMirror-focus')
+				var value = md[id].value()
+				if(input.data('value') !=value) {
+					var postdata = {
+						property: input.attr('id'),
+						id: input.data('id'),
+						value: value
+					}
+					$.post('', postdata, function(data) {
+						input.val(data.value)
+						input.data('id', data.id)
+						input.data('value', data.value)
+					}).fail(console.log)
+				}
+			})
+		})
+
+		$('input').blur(function() {
+			input = $(this)
+			if(input.data('value') != input.val()) {
+				var postdata = {
+					property: input.attr('id'),
+					id: input.data('id'),
+					value: input.val()
+				}
+				$.post('', postdata, function(data) {
+					input.val(data.value)
+					input.data('id', data.id)
+					input.data('value', data.value)
+				}).fail(console.log)
+			}
+		})
+
+		$('input[type="checkbox"]').change(function() {
+			input = $(this)
+			if(input.data('value') != input.is(':checked')) {
+				var postdata = {
+					property: input.attr('id'),
+					id: input.data('id'),
+					value: input.is(':checked')
+				}
+				$.post('', postdata, function(data) {
+					input.val(data.value)
+					input.data('id', data.id)
+					input.data('value', data.value)
+				}).fail(console.log)
+			}
+		})
+
+		$('select').change(function() {
+			input = $(this)
+			var postdata = {
+				property: input.attr('id'),
+				id: input.data('id'),
+				value: input.val()
+			}
+			$.post('', postdata, function(data) {
+				input.val(data.value)
+				input.data('id', data.id)
+				input.data('value', data.value)
+
+				location.href = '/' + data.value + '#{ path.substring(3) }'
+			}).fail(console.log)
+		})
