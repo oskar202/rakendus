@@ -39,7 +39,7 @@ router.get('/done', function(req, res, next) {
             var url = req.signedCookies.redirect_url || '/profile'
 
             res.clearCookie('redirect_url')
-            res.redirect('/' + profile.get('language.value', APP_DEFAULT_LOCALE) + url)
+            res.redirect('/' + url)
         })
     })
 })
