@@ -7,9 +7,8 @@ var entu   = require('../entu/entu')
 
 // Show user own profile
 router.get('/', function(req, res, next) {
-    if(!res.authenticate()) return
-
-
+	res.render('profile')
+})
 
 
 module.exports = router
