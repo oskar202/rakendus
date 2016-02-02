@@ -58,7 +58,6 @@ app.use(function(req, res, next) {
 					id: parseInt(req.signedCookies.auth_id, 10),
 					token: req.signedCookies.auth_token,
 					picture: op.get(user, 'picture'),
-					lang: op.get(user, 'person.language.values.0.value', APP_DEFAULT_LOCALE)
 				}
 			} else {
 				res.clearCookie('auth_id')
