@@ -29,10 +29,14 @@ block content
 					td.col-md-2= f.get('cas-number.value', 'XXXX')
 					td.col-md-2= f.get('molecul-name.value', 'XXXX')
 					td.col-md-2= f.get('treshold.value', 'XXXX')
-					td.col-md-2= f.get('quality.value', 'XXXX')
-					td.col-md-2= f.get('retention-index.value', 'XXXX')
-					td.col-md-2= f.get('other-molecul-name.value', 'XXXX')
-					td.col-md-2= f.get('photo.value', 'XXXX')
+					td.col-md-2= f.get('quality', 'XXXX')
+					td.col-md-2
+						each ri in f.get('retention-index', 'XXXX')
+							a(href='https://nospel.entu.ee/entity/retention-index/' + ri.reference)= ri.value
+							br
+					td.col-md-2= f.get('other-molecul-name', 'XXXX')
+					td.col-md-2
+						img(src=f.get('_picture'))
 
 //- cas-number
 	//- entu-changed-at

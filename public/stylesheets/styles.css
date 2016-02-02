@@ -16,6 +16,9 @@ table#flavors tr.even {
 td {
   height: 70px;
 }
+th {
+  height: 50px;
+}
 h1 {
   color: #fff;
   font: 20px Helvetica;

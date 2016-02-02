@@ -1,0 +1,24 @@
+extends layout
+
+block vars
+	- title = 'signin'
+	//- title = t('pages.sign-in.title')
+
+block content
+	.container
+		.row
+			.jumbotron.col-xs-12.text-center
+				p= 'Sign in'
+				a.btn.btn-danger(href="/signin/google", title='Google', aria-label= 'pages.sign-in.google', aria-labelledby="terms-label")
+					span.fa.fa-google-plus Google
+
+		
+		.row
+			.col-xs-12.text-center
+				a(href='signin/facebook', title='Facebook', aria-label= 'pages.sign-in.facebook', aria-labelledby="terms-label")
+					i.signin.fa.fa-facebook-square.fa-5x(style='color:#3b5998')
+
+				a(href='signin/google', title='Google', aria-label= 'pages.sign-in.google', aria-labelledby="terms-label")
+					i.signin.fa.fa-google-plus-square.fa-5x(style='color:#dd4b39')
+
+		.row.spacer
