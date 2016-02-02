@@ -60,7 +60,7 @@ router.get('/exit', function(req, res) {
 
 // Sign in with given provider
 router.get('/:provider', function(req, res, next) {
-    if(!req.params.provider) res.redirect('/' + res.locals.lang + '/signin')
+    if(!req.params.provider) res.redirect('/'+ '/signin')
 
     res.clearCookie('auth_url')
     res.clearCookie('auth_state')
@@ -68,7 +68,7 @@ router.get('/:provider', function(req, res, next) {
     res.clearCookie('auth_token')
 
     entu.getSigninUrl({
-        redirect_url: req.protocol + '://' + req.hostname + '/' + res.locals.lang + '/signin/done',
+        redirect_url: req.protocol + '://' + req.hostname + '/' + '/signin/done',
         provider: req.params.provider
     }, function(error, data) {
         if(error) return next(error)
