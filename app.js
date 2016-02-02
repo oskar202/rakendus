@@ -18,6 +18,7 @@ APP_ENTU_URL  		= process.env.ENTU_URL || 'https://nospel.entu.ee/api2'
 APP_ENTU_USER 		= process.env.ENTU_USER
 APP_ENTU_KEY  		= process.env.ENTU_KEY
 APP_COOKIE_SECRET   = process.env.COOKIE_SECRET || random.generate(16)
+APP_DEFAULT_LOCALE  = process.env.DEFAULT_LOCALE || 'et'
 
 
 // view engine setup
