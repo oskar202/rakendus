@@ -35,7 +35,7 @@ router.get('/contact', function(req, res, next) {
 
 /* About page. */
 router.get('/about', function(req, res, next) {
-    res.render('about.jade', { title: 'Off flavours'});
+    res.render('about', { title: 'Off flavours'});
 })
 
 
