@@ -68,7 +68,7 @@ router.get('/:provider', function(req, res, next) {
     res.clearCookie('auth_token')
 
     entu.getSigninUrl({
-        redirect_url: req.protocol + '://' + req.hostname + '/' + '/signin/done',
+        redirect_url: req.protocol + '://' + req.hostname + '/' + '/profile',
         provider: req.params.provider
     }, function(error, data) {
         if(error) return next(error)
