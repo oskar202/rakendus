@@ -6,7 +6,7 @@ var entu   = require('../entu/entu')
 
 // Show signin page
 router.get('/', function(req, res) {
-    res.render('profile')
+    res.render('signin')
 })
 
 
@@ -14,7 +14,7 @@ router.get('/', function(req, res) {
 // Get user session
 router.get('/done', function(req, res, next) {
     if(!req.signedCookies.auth_url || !req.signedCookies.auth_state) {
-        res.redirect('/' + '/signin')
+        res.redirect('/' + '/profile')
 
         return
     }
