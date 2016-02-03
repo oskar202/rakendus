@@ -12,7 +12,4 @@ block content
 				a.btn.btn-danger(href="/signin/google", title='Google', aria-label= 'sign-in.google', aria-labelledby="terms-label")
 					span.fa.fa-google-plus Google
 
-			if(!req.signedCookies.auth_url || !req.signedCookies.auth_state) {
-				p you are logged in
-			}
 		.row.spacer
