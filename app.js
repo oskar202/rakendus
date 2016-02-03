@@ -38,8 +38,8 @@ app.use(cookieParser(APP_COOKIE_SECRET));
 app.use(function(req, res, next) {
 	res.authenticate = function() {
 		if(!res.locals.user) {
-			res.cookie('redirect_url', '/' + res.locals.path.split('/').slice(2).join('/'), {signed:true})
-			res.redirect('/signin')
+			res.cookie('redirect_url', '/' , {signed:true})
+			res.redirect('/signinn')
 			return false
 		} else {
 			return true
