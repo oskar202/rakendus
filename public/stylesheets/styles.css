@@ -37,6 +37,16 @@ button {
   outline: none;
   transition: all 0.2s ease-in-out;
 }
+.jumbotron {
+  background-image: url("http://cdn1.editmysite.com/uploads/5/6/0/7/56078839/background-images/1813800654.png");
+  background-size: cover;
+  background-position: center +940px;
+  min-height: 270px;
+}
+
+
 .jumbo {
+  font: 19px;
+  padding: 70px;
   text-align: center;
 }
