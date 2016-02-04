@@ -16,6 +16,7 @@ block content
 				th.col-md-2 Molecule name
 				th.col-md-2 Treshold
 				th.col-md-2 Quality
+				th.col-md-2 Product category
 				th.col-md-2 Retention index
 				th.col-md-2 Other-molecule-name
 				th.col-md-2 Photo
@@ -30,16 +31,20 @@ block content
 					td.col-md-2= f.get('molecul-name.value', 'XXXX')
 					td.col-md-2= f.get('treshold.value', 'XXXX')
 					td.col-md-2
-						each qu in f.get('quality', 'XXXX')
+						each qu in f.get('quality')
 							p=qu.value
-					
+
+					td.col-md-2= f.get('category.value','XXXX')
+
+
 					td.col-md-2
 						each ri in f.get('retention-index', 'XXXX')
 							a(href='https://nospel.entu.ee/entity/retention-index/' + ri.reference)= ri.value
 							br
+
 					td.col-md-2
-						each omv in f.get('other-molecul-name', 'XXXX')
-							p=omv.value
+						each omn in f.get('other-molecul-name', 'XXXX')
+							p=omn.value
 					td.col-md-2
 						img(src=f.get('_picture'), height="80", width="80")
 

@@ -1,4 +1,5 @@
 var router = require('express').Router();
+var async = require('async')
 var entu = require('../entu/entu')
 
 
@@ -15,7 +16,8 @@ router.get('/flavors', function(req, res, next) {
 		definition: 'flavor',
 		fullObject: true,
 		query: req.query.quality + ' ' + req.query.category +' '+ req.query.retention
-	}, function(error, flavors) {
+	},
+	 function(error, flavors) {
 		if(error) return next(error)
 
 		res.render('flavors', {
