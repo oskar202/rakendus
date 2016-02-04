@@ -1,7 +1,7 @@
 body {
   padding: 50px;
   font: 14px Helvetica;
-  background: #82e0af;
+  background-image: url("../images/background.png");
   letter-spacing: 1px;
 }
 a {
