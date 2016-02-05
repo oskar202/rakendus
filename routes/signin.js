@@ -6,7 +6,7 @@ var entu   = require('../entu/entu')
 
 // Show signin page
 router.get('/', function(req, res) {
-	res.render('insert')
+	res.render('signin')
 })
 
 
