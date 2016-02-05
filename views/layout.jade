@@ -1,5 +1,5 @@
 doctype html
-html(lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#")
+html(lang="en")
 
 	block vars
 
@@ -7,10 +7,12 @@ html(lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/f
 		meta(charset='utf-8')
 		meta(http-equiv='X-UA-Compatible' content='IE=edge')
 		meta(name='viewport' content='width=device-width, initial-scale=1')
-		meta(property='og:image' content='../images/FBimage.jpg')
+
 		title= title
 		- activeMenu = "home" //default
 		- menu = { "Home": "/", "Contact": "/contact" }
+
+		link(rel='shortcut icon', href='/images/favicon.png', type='image/x-icon') 
 
 		link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css')
 		link(rel='stylesheet', type='text/css', href='stylesheets/styles.css')
