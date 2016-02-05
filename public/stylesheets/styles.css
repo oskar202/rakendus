@@ -1,5 +1,5 @@
 body {
-  padding: 50px;
+  padding: 45px;
   font: 14px Helvetica;
   background-image: url("../images/background.png");
   letter-spacing: 1px;
@@ -37,6 +37,50 @@ button {
   outline: none;
   transition: all 0.2s ease-in-out;
 }
+
+.button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 205px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '»';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+
+
+
 .jumbotron {
   background-image: url("http://cdn1.editmysite.com/uploads/5/6/0/7/56078839/background-images/1813800654.png");
   background-size: cover;

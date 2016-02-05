@@ -1,60 +1,29 @@
 extends layout
 
 block vars
-		- title = 'Home'
-		- activeMenu = 'home'
+	- title = 'Home'
+	- activeMenu = 'home'
 
 block content
-		div.container
-			div.row
-				div.col-md-6
-						div.col-md-8
-							h1 Search off-flavors
-
-							form(method="GET", action="/flavors")
-								div.form-group
-									label Flavor quality
-									input(type="text",name="quality", class="form-control", placeholder="Moldy")
-									br
-									label Product Category
-									input(type="text",name="category", class="form-control", placeholder="Milk")
-									br
-									label Retention index
-									input(type="text",name="retention", class="form-control", placeholder="876")
-								div.actions
-									button(type="submit",class="btn btn-default") Search
-
-
-					div.row
+	div.container
+		div.row
+				div.col-md-12
+					div(align="center")
 						div.col-md-6
-								div.col-md-8
-									h1 Insert off-flavor
 
-									form
-										div.form-group
-											label Molecule name *
-											input(type="text", class="form-control")
-											br
-											label CAS number *
-											input(type="text", class="form-control")
-											br
-											label Flavor quality list *
-											input(type="text", class="form-control")
-											br
-											label Product category *
-											input(type="text", class="form-control")
-											br
-											label Developing Mechanism *
-											input(type="text", maxlength="4", class="form-control")
-											br
-											label Retention column *
-											input(type="text", class="form-control")
-											br
-											label Retention index *
-											input(type="text", class="form-control")
-											br
-											label Odor threshold
-											input(type="text", class="form-control")
+							button.button(style="vertical-align:middle" onclick='search()') 
+								span Search off-flavors
+						div.col-md-6
+							script.
+								var search = function() {
+									var searchurl = "http://localhost:3000/search"
+									window.location.href=searchurl
+								}
 
-										div.actions
-											button(type="submit",class="btn btn-default") Insert
+							button.button(style="vertical-align:middle" onclick='insert()')
+								span Insert off-flavor
+							script.
+								var insert = function() {
+									var inserturl = "http://localhost:3000/insert"
+									window.location.href=inserturl
+								}

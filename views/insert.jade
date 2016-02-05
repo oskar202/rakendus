@@ -1,0 +1,42 @@
+extends layout
+
+block vars
+		- title = 'Insert'
+
+block content
+	if user=true
+		div.container
+
+					div.row
+						div.col-md-6
+								div.col-md-8
+									h1 Insert off-flavor
+
+									form
+										div.form-group
+											label Molecule name *
+											input(type="text", class="form-control")
+											br
+											label CAS number *
+											input(type="text", class="form-control")
+											br
+											label Flavor quality list *
+											input(type="text", class="form-control")
+											br
+											label Product category *
+											input(type="text", class="form-control")
+											br
+											label Developing Mechanism *
+											input(type="text", maxlength="4", class="form-control")
+											br
+											label Retention column *
+											input(type="text", class="form-control")
+											br
+											label Retention index *
+											input(type="text", class="form-control")
+											br
+											label Odor threshold
+											input(type="text", class="form-control")
+
+										div.actions
+											button(type="submit",class="btn btn-default") Insert

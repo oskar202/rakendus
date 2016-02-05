@@ -27,6 +27,16 @@ router.get('/flavors', function(req, res, next) {
 })
 
 
+/* GET insert page. */
+router.get('/insert', function(req, res, next) {
+	res.render('insert');
+})
+
+/* GET search page. */
+router.get('/search', function(req, res, next) {
+	res.render('search');
+})
+
 
 /* Contact page. */
 router.get('/contact', function(req, res, next) {
