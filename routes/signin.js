@@ -14,7 +14,7 @@ router.get('/', function(req, res) {
 // Get user session
 router.get('/done', function(req, res, next) {
 	if(!req.signedCookies.auth_url || !req.signedCookies.auth_state) {
-		res.redirect('/' + '/insert')
+		res.redirect('/' + '/signin')
 		
 		return
 	}
