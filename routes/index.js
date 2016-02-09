@@ -12,19 +12,44 @@ router.get('/', function(req, res, next) {
 
 /* Flavors page. */
 router.get('/flavors', function(req, res, next) {
-	entu.getEntities({
-		definition: 'flavor',
-		fullObject: true,
-		query: req.query.quality + ' ' + req.query.category +' '+ req.query.retention
-	},
-	 function(error, flavors) {
-		if(error) return next(error)
+	async.parallel({
+		flavors: function(callback) {
+			entu.getEntities({
+				definition: 'flavor',
+				fullObject: true,
+				query: req.query.quality
+			}, callback)
+		},
+		retentionindex: function(callback) {
+			entu.getEntities({
+				definition: 'retention-index',
+				fullObject: true,
+				query: req.query.retention
+			}, callback)
+		},
+		flavorincident: function(callback) {
+			entu.getEntities({
+				definition: 'flavor-incident',
+				fullObject: true,
+				query: req.query.category
 
-		res.render('flavors', {
-			flavors: flavors
-		})
+			}, callback)
+		},
+	},
+		function(err, results) {
+			if(err) return next(err)
+
+			res.render('flavors',{
+				flavors: results.flavors,
+				retentionindex: results.retentionindex,
+				flavorincident: results.flavorincident
+			})
 	})
 })
+
+
+
+
 
 
 /* GET insert page. */
