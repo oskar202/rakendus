@@ -11,7 +11,7 @@ block content
 		table#flavors
 			thead
 			tr.head
-				th.col-md-2 ID
+				//-th.col-md-2 ID
 				th.col-md-2 CAS number
 				th.col-md-2 Molecule name
 				th.col-md-2 Treshold
@@ -26,32 +26,31 @@ block content
 			each f in flavors
 				- ++i
 				tr(class=(i % 2 == 0) ? 'odd' : 'even')
-					td.col-md-2= f.get('_id')
-					td.col-md-2= f.get('cas-number.value', 'XXXX')
-					td.col-md-2= f.get('molecul-name.value', 'XXXX')
-					td.col-md-2= f.get('treshold.value', 'XXXX')
+					//-td.col-md-2= f.get('_id')
+					td.col-md-2= f.get('cas-number.value', [])
+					td.col-md-2= f.get('molecul-name.value', [])
+					td.col-md-2= f.get('treshold.value', [])
 					td.col-md-2
-						each qu in f.get('quality')
+						each qu in f.get('quality',[])
 							p=qu.value
 
 
-					td.col-md-2
-						each fi in flavorincident
-							p=fi.get('product','XXXX')
+					//- td.col-md-2
+					//- 	each fi in f.get('flavorincident.value', 'ZZZ')
+					//- 		p=fi.value
+
+					//- td.col-md-2
+					//- 	each rii in f.get('retention-index',[])
+					//- 		p=rii.value
 
 
 					td.col-md-2
-						each rii in retentionindex
-							p=rii.get('value.value','XXXX')
-
-
-					//td.col-md-2
-						each ri in f.get('retention-index', 'XXXX')
+						each ri in f.get('retention-index', [])
 							a(href='https://nospel.entu.ee/entity/retention-index/' + ri.reference)= ri.value
 							br
 
 					td.col-md-2
-						each omn in f.get('other-molecul-name', 'XXXX')
+						each omn in f.get('other-molecul-name', [])
 							p=omn.value
 					td.col-md-2
 						img(src=f.get('_picture'), height="80", width="80")

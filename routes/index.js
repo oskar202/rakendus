@@ -12,49 +12,37 @@ router.get('/', function(req, res, next) {
 
 /* Flavors page. */
 router.get('/flavors', function(req, res, next) {
-	async.parallel({
-		flavors: function(callback) {
-			entu.getEntities({
-				definition: 'flavor',
-				fullObject: true,
-				query: req.query.quality
-			}, callback)
-		},
-		retentionindex: function(callback) {
-			entu.getEntities({
-				definition: 'retention-index',
-				fullObject: true,
-				query: req.query.retention
-			}, callback)
-		},
-		flavorincident: function(callback) {
-			entu.getEntities({
-				definition: 'flavor-incident',
-				fullObject: true,
-				query: req.query.category
+	entu.getEntities({
+		definition: 'flavor',
+		fullObject: true,
+		query: req.query.quality + ' ' + req.query.category +' '+ req.query.retention
+	}, function(error, flavors) {
+		if(error) return next(error)
 
-			}, callback)
-		},
-	},
-		function(err, results) {
-			if(err) return next(err)
-
-			res.render('flavors',{
-				flavors: results.flavors,
-				retentionindex: results.retentionindex,
-				flavorincident: results.flavorincident
-			})
+		res.render('flavors', {
+			flavors: flavors
+		})
 	})
 })
 
 
 
-
-
-
-/* GET insert page. */
-router.get('/insert', function(req, res, next) {
+/* POST insert page. */
+router.get('/insert', function(req, res, next) {	
 	res.render('insert');
+
+})
+
+
+router.post('/:id', function(req, res, next){
+	
+	entu.add({
+		parentEntityId: 48131,
+		definition: 'flavor',
+		properties: req.body
+	},function(err,results){
+		if(!err) res.redirect('')
+	})
 })
 
 /* GET search page. */

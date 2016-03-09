@@ -12,31 +12,33 @@ block content
 								div.col-md-8
 									h1 Insert off-flavor
 
-									form
+									form(method="POST", action="/insert")
 										div.form-group
 											label Molecule name *
-											input(type="text", class="form-control")
+											input(type="text", class="form-control", name= "molecul-name")
+											br
+											label Other molecule names *
+											input(type="text", class="form-control" name="other-molecul-name")
 											br
 											label CAS number *
-											input(type="text", class="form-control")
+											input(type="text", class="form-control", name="cas-number")
 											br
-											label Flavor quality list *
-											input(type="text", class="form-control")
+											label Flavor qualities
+											input(type="text", class="form-control" name="quality")
 											br
-											label Product category *
-											input(type="text", class="form-control")
-											br
-											label Developing Mechanism *
-											input(type="text", maxlength="4", class="form-control")
-											br
-											label Retention column *
-											input(type="text", class="form-control")
-											br
-											label Retention index *
-											input(type="text", class="form-control")
-											br
+											//- label Developing Mechanism *
+											//- input(type="text", maxlength="4", class="form-control")
+											//- br
+											//- label Retention column *
+											//- input(type="text", class="form-control")
+											//- br
+											//- label Retention index *
+											//- input(type="text", class="form-control")
+											//- br
 											label Odor threshold
-											input(type="text", class="form-control")
+											input(type="text", class="form-control", name="treshold")
 
 										div.actions
 											button(type="submit",class="btn btn-default") Insert
+
+//- Product category ; flavor quality list 
