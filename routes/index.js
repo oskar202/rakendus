@@ -27,7 +27,7 @@ router.get('/flavors', function(req, res, next) {
 
 
 
-/* POST insert page. */
+/* GET insert page. */
 router.get('/insert', function(req, res, next) {	
 	res.render('insert');
 

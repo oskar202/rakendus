@@ -16,7 +16,7 @@ block content
 				th.col-md-2 Molecule name
 				th.col-md-2 Treshold
 				th.col-md-2 Quality
-				//th.col-md-2 Product category
+				//-th.col-md-2 Product category
 				th.col-md-2 Retention index
 				th.col-md-2 Other-molecule-name
 				th.col-md-2 Photo
@@ -42,7 +42,9 @@ block content
 					//- td.col-md-2
 					//- 	each rii in f.get('retention-index',[])
 					//- 		p=rii.value
-
+					//- td.col-md-2
+					//- 	each pc in f.get('product-category', 'XXXX')
+					//- 		p=pc.value
 
 					td.col-md-2
 						each ri in f.get('retention-index', [])

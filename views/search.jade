@@ -12,13 +12,13 @@ block content
 
 							form(method="GET", action="/flavors")
 								div.form-group
-									label Flavor quality
+									label Flavor quality, Product Category, Retention index
 									input(type="text",name="quality", class="form-control", placeholder="Mold")
-									br
-									label Product Category
-									input(type="text",name="category", class="form-control", placeholder="Earth")
-									br
-									label Retention index
-									input(type="text",name="retention", class="form-control", placeholder="876")
+									//br
+									//label Product Category
+									input(type="hidden",name="category", class="form-control", placeholder="Earth")
+									//br
+									//label Retention index
+									input(type="hidden",name="retention", class="form-control", placeholder="876")
 								div.actions
 									button(type="submit",class="btn btn-default") Search

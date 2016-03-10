@@ -39,6 +39,11 @@ block content
 											input(type="text", class="form-control", name="treshold")
 
 										div.actions
-											button(type="submit",class="btn btn-default") Insert
+											button(type="submit",class="btn btn-default", onclick="alertSuccess()") Insert
+
+										script.
+											function alertSuccess() {
+												alert('Flavor inserted');
+											}
 
 //- Product category ; flavor quality list 

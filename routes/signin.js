@@ -14,8 +14,7 @@ router.get('/', function(req, res) {
 // Get user session
 router.get('/done', function(req, res, next) {
 	if(!req.signedCookies.auth_url || !req.signedCookies.auth_state) {
-		res.redirect('/' + '/signin')
-		
+		res.redirect('/' + 'signin')
 		return
 	}
 
@@ -61,7 +60,7 @@ router.get('/exit', function(req, res) {
 
 // Sign in with given provider
 router.get('/:provider', function(req, res, next) {
-	if(!req.params.provider) res.redirect('/'+ 'profile')
+	if(!req.params.provider) res.redirect('/'+ 'signin')
 
 	res.clearCookie('auth_url')
 	res.clearCookie('auth_state')
@@ -69,7 +68,7 @@ router.get('/:provider', function(req, res, next) {
 	res.clearCookie('auth_token')
 
 	entu.getSigninUrl({
-		redirect_url: req.protocol + '://' + req.hostname + '/' + 'profile',
+		redirect_url: req.protocol + '://' + req.hostname + '/' + 'signin/done',
 		provider: req.params.provider
 	}, function(error, data) {
 		if(error) return next(error)
