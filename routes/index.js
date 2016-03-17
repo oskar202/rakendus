@@ -29,7 +29,11 @@ router.get('/flavors', function(req, res, next) {
 
 /* GET insert page. */
 router.get('/insert', function(req, res, next) {	
-	res.render('insert');
+	if(!res.authenticate()) return
+
+	else
+		console.log("logged in successful");
+		res.render('insert');
 
 })
 
